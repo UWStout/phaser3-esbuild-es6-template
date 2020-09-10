@@ -1,0 +1,23 @@
+{
+  "name": "@phaserjs/phaser-esbuild-typescript-template",
+  "version": "1.0.0",
+  "description": "Phaser 4 esbuild + TypeScript Template",
+  "scripts": {
+    "check": "tsc --noEmit -c tsconfig.json",
+    "dev": "esbuild --bundle src/main.ts --outfile=public/bundle.js --sourcemap",
+    "build": "esbuild --bundle src/main.ts --outfile=public/bundle.js --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phaserjs/phaser-esbuild-typescript-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phaserjs/phaser-esbuild-typescript-template/issues"
+  },
+  "homepage": "https://github.com/phaserjs/phaser-esbuild-typescript-template#readme",
+  "devDependencies": {
+    "@phaserjs/phaser": "^0.1.8",
+    "esbuild": "^0.5.26",
+    "typescript": "^3.9.6"
+  }
+}
