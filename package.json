@@ -1,23 +1,28 @@
 {
-  "name": "@phaserjs/phaser-esbuild-typescript-template",
+  "name": "gdd325-esbuild-phaser3",
   "version": "1.0.0",
-  "description": "Phaser 4 esbuild + TypeScript Template",
+  "description": "Phaser 3 + ESBuild + ES6 Template Project",
   "scripts": {
-    "check": "tsc --noEmit -c tsconfig.json",
-    "dev": "esbuild --bundle src/main.ts --outfile=public/bundle.js --sourcemap",
-    "build": "esbuild --bundle src/main.ts --outfile=public/bundle.js --minify"
+    "dev": "node devServer.js",
+    "build": "esbuild --bundle src/main.js --outfile=public/bundle.js --minify"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phaserjs/phaser-esbuild-typescript-template.git"
+    "url": "git+https://github.com/UWStout/gdd325-esbuild-phaser3.git"
   },
   "bugs": {
-    "url": "https://github.com/phaserjs/phaser-esbuild-typescript-template/issues"
+    "url": "https://github.com/UWStout/gdd325-esbuild-phaser3/issues"
   },
-  "homepage": "https://github.com/phaserjs/phaser-esbuild-typescript-template#readme",
+  "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
   "devDependencies": {
-    "@phaserjs/phaser": "^0.1.8",
+    "browser-sync": "^2.26.12",
     "esbuild": "^0.5.26",
-    "typescript": "^3.9.6"
+    "eslint": "^7.8.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "phaser": "^3.50.0-beta.4"
   }
 }
