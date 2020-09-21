@@ -34,9 +34,9 @@ To run commands, open any terminal and change to the root directory of your loca
 
 The `public/index.html` file contains a `<script src="bundle.js">` tag, which means we need to create `public/bundle.js`. The npm command `npm run build` tells ESBuild how to create this bundle, starting with `src/main.js` and including all its dependencies.
 
-`npm run dev` builds the application to `public/bundle.js`, along with a sourcemap file for debugging. It also uses Browsersync to serve the files locally for debugging purposes at `localhost:3000`.  It will also attempt to automatically open `http://localhost:3000/` in your default browser set in your OS.
+`npm run dev` builds the application to `public/bundle.js`, along with a sourcemap file for debugging. It also uses Browsersync to serve the files locally for debugging purposes at `localhost:3000`.  It will continue to run and automatically rebuild and refresh your browser until you kill it with `ctrl +C` in the terminal where you ran it.  It will also attempt to automatically open `http://localhost:3000/` in your default browser set in your OS when it starts.
 
-`npm run build` will run the build only using minify with no sourcemap or local server.
+`npm run build` will run the build only using minify with no sourcemap or local server and does NOT continue to monitor for changes.
 
 ## License
 
