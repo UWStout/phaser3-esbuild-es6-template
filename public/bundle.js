@@ -1757,7 +1757,7 @@
           var pool = [];
           var _disableContextSmoothing = false;
           var CanvasPool = function() {
-            var create2 = function(parent, width, height, canvasType, selfParent) {
+            var create = function(parent, width, height, canvasType, selfParent) {
               if (width === void 0) {
                 width = 1;
               }
@@ -1797,10 +1797,10 @@
               return canvas;
             };
             var create2D = function(parent, width, height) {
-              return create2(parent, width, height, CONST.CANVAS);
+              return create(parent, width, height, CONST.CANVAS);
             };
             var createWebGL = function(parent, width, height) {
-              return create2(parent, width, height, CONST.WEBGL);
+              return create(parent, width, height, CONST.WEBGL);
             };
             var first = function(canvasType) {
               if (canvasType === void 0) {
@@ -1847,7 +1847,7 @@
             };
             return {
               create2D,
-              create: create2,
+              create,
               createWebGL,
               disableSmoothing,
               enableSmoothing,
@@ -71570,7 +71570,7 @@
             __webpack_require__(518);
             var CONST = __webpack_require__(33);
             var Extend = __webpack_require__(18);
-            var Phaser2 = {
+            var Phaser3 = {
               Actions: __webpack_require__(241),
               Animations: __webpack_require__(638),
               BlendModes: __webpack_require__(52),
@@ -71605,15 +71605,15 @@
               Utils: __webpack_require__(1373)
             };
             if (true) {
-              Phaser2.Sound = __webpack_require__(1383);
+              Phaser3.Sound = __webpack_require__(1383);
             }
             if (false) {
             }
             if (false) {
             }
-            Phaser2 = Extend(false, Phaser2, CONST);
-            module2.exports = Phaser2;
-            global.Phaser = Phaser2;
+            Phaser3 = Extend(false, Phaser3, CONST);
+            module2.exports = Phaser3;
+            global.Phaser = Phaser3;
           }).call(this, __webpack_require__(517));
         },
         function(module2, exports2, __webpack_require__) {
@@ -73322,6 +73322,31 @@
     });
   });
 
+  // src/scenes/Example.js
+  const phaser2 = __toModule(require_phaser());
+  class ExampleScene extends phaser2.default.Scene {
+    preload() {
+      this.load.image("sky", "assets/skies/space3.png");
+      this.load.image("logo", "assets/sprites/phaser3-logo.png");
+      this.load.image("red", "assets/particles/red.png");
+    }
+    create() {
+      this.add.image(400, 300, "sky");
+      const particles = this.add.particles("red");
+      const emitter = particles.createEmitter({
+        speed: 100,
+        scale: {start: 1, end: 0},
+        blendMode: "ADD"
+      });
+      const logo = this.physics.add.image(400, 100, "logo");
+      logo.setVelocity(100, 200);
+      logo.setBounce(1, 1);
+      logo.setCollideWorldBounds(true);
+      emitter.startFollow(logo);
+    }
+  }
+  var Example_default = ExampleScene;
+
   // src/main.js
   const phaser = __toModule(require_phaser());
   const config = {
@@ -73333,31 +73358,9 @@
       arcade: {
         gravity: {y: 200}
       }
-    },
-    scene: {
-      preload,
-      create
     }
   };
   const game = new phaser.default.Game(config);
-  function preload() {
-    this.load.image("sky", "assets/skies/space3.png");
-    this.load.image("logo", "assets/sprites/phaser3-logo.png");
-    this.load.image("red", "assets/particles/red.png");
-  }
-  function create() {
-    this.add.image(400, 300, "sky");
-    const particles = this.add.particles("red");
-    const emitter = particles.createEmitter({
-      speed: 100,
-      scale: {start: 1, end: 0},
-      blendMode: "ADD"
-    });
-    const logo = this.physics.add.image(400, 100, "logo");
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
-    emitter.startFollow(logo);
-  }
+  game.scene.add("ExampleScene", Example_default, true);
 })();
 //# sourceMappingURL=bundle.js.map
