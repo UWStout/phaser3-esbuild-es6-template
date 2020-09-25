@@ -1,7 +1,10 @@
 import Phaser from 'phaser'
 
+import CONFIG from '../config.js'
+
 class ExampleScene extends Phaser.Scene {
   preload () {
+    // Load the image assets needed
     this.load.image('sky', 'assets/skies/space3.png')
     this.load.image('logo', 'assets/sprites/phaser3-logo.png')
     this.load.image('red', 'assets/particles/red.png')
@@ -9,7 +12,11 @@ class ExampleScene extends Phaser.Scene {
 
   create () {
     // Add background image
-    this.add.image(400, 300, 'sky')
+    const sky = this.add.image(CONFIG.DEFAULT_WIDTH / 2, CONFIG.DEFAULT_HEIGHT / 2, 'sky')
+    sky.setScale(
+      CONFIG.DEFAULT_WIDTH / sky.width,
+      CONFIG.DEFAULT_HEIGHT / sky.height
+    )
 
     // Create and configure a particle emitter
     const particles = this.add.particles('red')
