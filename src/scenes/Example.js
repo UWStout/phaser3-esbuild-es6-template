@@ -4,10 +4,10 @@ import CONFIG from '../config.js'
 
 class ExampleScene extends Phaser.Scene {
   preload () {
-    // Load the image assets needed
-    this.load.image('sky', 'assets/skies/space3.png')
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-    this.load.image('red', 'assets/particles/red.png')
+    // Loading is done in 'StartScene'
+    // - 'sky' is background image
+    // - 'red' is our particle
+    // - 'logo' is the phaser3 logo
   }
 
   create () {
@@ -34,6 +34,15 @@ class ExampleScene extends Phaser.Scene {
 
     // Make the particle emitter follow the logo
     emitter.startFollow(logo)
+
+    // Add a callback when a key is released
+    this.input.keyboard.on('keyup', this.keyReleased)
+  }
+
+  keyReleased () {
+    console.log('Key released')
+    this.game.scene.start('StartScene')
+    this.game.scene.stop('ExampleScene')
   }
 }
 

@@ -5,6 +5,7 @@ import CONFIG from './config.js'
 
 // Bringing in our base example scene
 import ExampleScene from './scenes/Example.js'
+import StartScene from './scenes/Start.js'
 
 const config = {
   // Configure Phaser graphics settings
@@ -30,4 +31,6 @@ const config = {
 const game = new Phaser.Game(config)
 
 // Add and auto-starting ExampleScene
-game.scene.add('ExampleScene', ExampleScene, true)
+game.scene.add('StartScene', StartScene)
+game.scene.add('ExampleScene', ExampleScene)
+game.scene.start('StartScene')
