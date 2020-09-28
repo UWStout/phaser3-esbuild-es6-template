@@ -4,6 +4,7 @@
   "description": "Phaser 3 + ESBuild + ES6 Template Project",
   "scripts": {
     "dev": "node devServer.js",
+    "audio": "audiosprite --loop freeVertexStudioTrack1 --loop freeVertexStudioTrack2 --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3",
     "build": "esbuild --bundle src/main.js --outfile=public/bundle.js --minify"
   },
   "repository": {
@@ -16,6 +17,7 @@
   "license": "MIT",
   "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
   "devDependencies": {
+    "audiosprite": "^0.7.2",
     "browser-sync": "^2.26.12",
     "esbuild": "^0.5.26",
     "eslint": "^7.8.1",
