@@ -20,6 +20,14 @@ class StartScene extends Phaser.Scene {
     this.load.image('logo', 'assets/sprites/phaser3-logo.png')
     this.load.image('red', 'assets/particles/red.png')
 
+    // Pre-load the entire audio sprite
+    this.load.audioSprite('gameAudio', 'assets/audio/gameAudioSprite.json', [
+      'assets/audio/gameAudioSprite.ogg',
+      'assets/audio/gameAudioSprite.m4a',
+      'assets/audio/gameAudioSprite.mp3',
+      'assets/audio/gameAudioSprite.ac3'
+    ])
+
     // DEBUG: Fake loading lots of data
     for (let i = 0; i < 300; i++) {
       this.load.image('sky' + i, 'assets/skies/space3.png')
@@ -38,13 +46,18 @@ class StartScene extends Phaser.Scene {
     )
 
     // Add a callback when a key is released
-    this.input.keyboard.on('keyup', this.keyReleased)
+    this.input.keyboard.on('keyup', this.keyReleased, this)
+
+    // Load and play background music
+    this.music = this.sound.addAudioSprite('gameAudio')
+    this.music.play('freeVertexStudioTrack1')
   }
 
   keyReleased () {
     console.log('Key released')
     this.game.scene.start('ExampleScene')
     this.game.scene.stop('StartScene')
+    this.music.stop()
   }
 }
 

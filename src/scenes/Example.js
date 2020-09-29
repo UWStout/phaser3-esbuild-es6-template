@@ -31,18 +31,30 @@ class ExampleScene extends Phaser.Scene {
     logo.setVelocity(100, 200)
     logo.setBounce(1, 1)
     logo.setCollideWorldBounds(true)
+    logo.body.onWorldBounds = true
+
+    // Play sound when we hit the world bounds
+    this.physics.world.on('worldbounds', () => { this.sfx.play('hitSound') }, this)
 
     // Make the particle emitter follow the logo
     emitter.startFollow(logo)
 
     // Add a callback when a key is released
-    this.input.keyboard.on('keyup', this.keyReleased)
+    this.input.keyboard.on('keyup', this.keyReleased, this)
+
+    // Load and play background music
+    this.music = this.sound.addAudioSprite('gameAudio')
+    this.music.play('freeVertexStudioTrack2')
+
+    // Create a sound instance for sfx
+    this.sfx = this.sound.addAudioSprite('gameAudio')
   }
 
   keyReleased () {
     console.log('Key released')
     this.game.scene.start('StartScene')
     this.game.scene.stop('ExampleScene')
+    this.music.stop()
   }
 }
 

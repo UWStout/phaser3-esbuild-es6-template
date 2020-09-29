@@ -73348,13 +73348,21 @@
       logo.setVelocity(100, 200);
       logo.setBounce(1, 1);
       logo.setCollideWorldBounds(true);
+      logo.body.onWorldBounds = true;
+      this.physics.world.on("worldbounds", () => {
+        this.sfx.play("hitSound");
+      }, this);
       emitter.startFollow(logo);
-      this.input.keyboard.on("keyup", this.keyReleased);
+      this.input.keyboard.on("keyup", this.keyReleased, this);
+      this.music = this.sound.addAudioSprite("gameAudio");
+      this.music.play("freeVertexStudioTrack2");
+      this.sfx = this.sound.addAudioSprite("gameAudio");
     }
     keyReleased() {
       console.log("Key released");
       this.game.scene.start("StartScene");
       this.game.scene.stop("ExampleScene");
+      this.music.stop();
     }
   }
   var Example_default = ExampleScene;
@@ -73371,6 +73379,12 @@
       this.load.image("sky", "assets/skies/space3.png");
       this.load.image("logo", "assets/sprites/phaser3-logo.png");
       this.load.image("red", "assets/particles/red.png");
+      this.load.audioSprite("gameAudio", "assets/audio/gameAudioSprite.json", [
+        "assets/audio/gameAudioSprite.ogg",
+        "assets/audio/gameAudioSprite.m4a",
+        "assets/audio/gameAudioSprite.mp3",
+        "assets/audio/gameAudioSprite.ac3"
+      ]);
       for (let i = 0; i < 300; i++) {
         this.load.image("sky" + i, "assets/skies/space3.png");
       }
@@ -73379,12 +73393,15 @@
       this.loadingText.destroy();
       const startScreen = this.add.image(config_default.DEFAULT_WIDTH / 2, config_default.DEFAULT_HEIGHT / 2, "StartScreen");
       startScreen.setScale(config_default.DEFAULT_WIDTH / startScreen.width, config_default.DEFAULT_HEIGHT / startScreen.height);
-      this.input.keyboard.on("keyup", this.keyReleased);
+      this.input.keyboard.on("keyup", this.keyReleased, this);
+      this.music = this.sound.addAudioSprite("gameAudio");
+      this.music.play("freeVertexStudioTrack1");
     }
     keyReleased() {
       console.log("Key released");
       this.game.scene.start("ExampleScene");
       this.game.scene.stop("StartScene");
+      this.music.stop();
     }
   }
   var Start_default = StartScene;
