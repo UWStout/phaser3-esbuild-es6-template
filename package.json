@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node devServer.js",
     "audio": "audiosprite --loop BGMTrack1 --loop BGMTrack2 --loop Stage1 --loop Stage2 --loop footstepsSound --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3 raw_assets/audio/*.wav",
-    "build": "esbuild --bundle src/main.js --outfile=public/bundle.js --minify"
+    "build": "esbuild --bundle src/main.js --outfile=public/bundle.js --minify --target=es6 --define:__DEV__=false",
+    "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
@@ -16,9 +17,13 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
+  "resolutions": {
+    "minimist": "^1.2.5"
+  },
   "devDependencies": {
     "audiosprite": "^0.7.2",
     "browser-sync": "^2.26.12",
+    "debounce": "^1.2.1",
     "esbuild": "^0.5.26",
     "eslint": "^7.8.1",
     "eslint-config-standard": "^14.1.1",
