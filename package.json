@@ -5,9 +5,9 @@
   "scripts": {
     "audio": "audiosprite --loop freeVertexStudioTrack1 --loop freeVertexStudioTrack2 --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3",
 
-    "dev": "esbuild --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/bundle.js src/main.js",
-    "prod": "esbuild --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js src/main.js",
-    "build": "esbuild --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js src/main.js",
+    "dev": "esbuild src/main.js --serve=3000 --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/bundle.js",
+    "prod": "esbuild src/main.js --serve=3000 --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js",
+    "build": "esbuild src/main.js --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js",
 
     "preinstall": "npx npm-force-resolutions"
   },
