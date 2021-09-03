@@ -3,9 +3,12 @@
   "version": "1.1.1",
   "description": "Phaser 3 + ESBuild + ES6 Template Project",
   "scripts": {
-    "dev": "node devServer.js",
     "audio": "audiosprite --loop freeVertexStudioTrack1 --loop freeVertexStudioTrack2 --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3",
-    "build": "esbuild --bundle src/main.js --outfile=public/bundle.js --minify --target=es6 --define:__DEV__=false",
+
+    "dev": "esbuild --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/bundle.js src/main.js",
+    "prod": "esbuild --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js src/main.js",
+    "build": "esbuild --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js src/main.js",
+
     "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
@@ -23,15 +26,13 @@
   },
   "devDependencies": {
     "audiosprite": "^0.7.2",
-    "browser-sync": "^2.26.12",
     "debounce": "^1.2.1",
-    "esbuild": "^0.5.26",
-    "eslint": "^7.8.1",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "esbuild": "^0.12.25",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "phaser": "^3.24.0"
+    "eslint-plugin-promise": "^5.1.0",
+    "phaser": "^3.55.0"
   }
 }
