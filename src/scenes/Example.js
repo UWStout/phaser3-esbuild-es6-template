@@ -5,10 +5,10 @@ import CONFIG from '../config.js'
 
 class ExampleScene extends Phaser.Scene {
   preload () {
-    // Load the image assets needed
-    this.load.image('sky', 'assets/skies/space3.png')
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-    this.load.image('red', 'assets/particles/red.png')
+    // All loading is now done in 'StartScene'
+    // - 'sky' is background image
+    // - 'red' is our particle
+    // - 'logo' is the phaser3 logo
   }
 
   create () {
