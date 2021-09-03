@@ -1,6 +1,6 @@
 # Phaser 3 + ESBuild + ES6 Template
 
-This repo contains an example of how to create a game using Phaser 3, ES6 and [ESBuild](https://github.com/evanw/esbuild).  It uses Browsersync to run a local server when in dev mode.
+This repo contains an example of how to create a game using Phaser 3, ES6 and [ESBuild](https://github.com/evanw/esbuild).  It uses esbuild's built-in server when used in dev or prod mode.
 
 ## Dev Environment Software
 
@@ -34,9 +34,13 @@ To run commands, open any terminal and change to the root directory of your loca
 
 The `public/index.html` file contains a `<script src="bundle.js">` tag, which means we need to create `public/bundle.js`. The npm command `npm run build` tells ESBuild how to create this bundle, starting with `src/main.js` and including all its dependencies.
 
-`npm run dev` builds the application to `public/bundle.js`, along with a sourcemap file for debugging. It also uses Browsersync to serve the files locally for debugging purposes at `localhost:3000`.  It will continue to run and automatically rebuild and refresh your browser until you kill it with `ctrl + C` in the terminal where you ran it.  It will also attempt to automatically open `http://localhost:3000/` in your default browser set in your OS when it starts.
+`npm run dev` starts a local server on port 3000 that serves the contents of `public`.  Any request for `bundle.js` will cause it to automatically rebuild your game and then it will serve the results live.  Simply open `localhost:3000` in your browser and as you edit your code, have the developer-tools open.  When you refresh the page, it will automatically rebuild your game and serve the latest version. Make sure you have your browser's caching disabled (usually under the 'Network' tab of the developer tools).
 
-`npm run build` will run the build only using minify with no sourcemap or local server and does NOT continue to monitor for changes.
+When the game is run in `dev` mode, the global JS variable `__DEV__` is true.  You can use this variable with console logs and other statements to adjust behavior while developing the game.
+
+`npm run prod` is similar to `dev` in that it runs a local server and builds your code as you go, BUT it does not generate a source-code map, it minifies the code, and `__DEV__` is set to false.  This is a 'preview' of the final production build you can do with the `build` command below.
+
+`npm run build` will do a build only using minify with no sourcemap or local server and does NOT continue to monitor for changes.  Use this when you are ready to deploy your game to a dedicated web server. The game is completely contained under the `public` folder.
 
 ## License
 
