@@ -1,6 +1,6 @@
 {
   "name": "gdd325-esbuild-phaser3",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Phaser 3 + ESBuild + ES6 Template Project",
   "scripts": {
     "dev": "node devServer.js",
@@ -18,7 +18,8 @@
   "license": "MIT",
   "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "audiosprite": "^0.7.2",
