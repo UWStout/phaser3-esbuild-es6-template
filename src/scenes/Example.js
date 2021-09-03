@@ -12,6 +12,10 @@ class ExampleScene extends Phaser.Scene {
   }
 
   create () {
+    // Setup variables with world bounds
+    const worldWidth = CONFIG.DEFAULT_WIDTH * 1.5
+    const worldHeight = CONFIG.DEFAULT_HEIGHT
+
     // Add background image
     const sky = this.add.image(CONFIG.DEFAULT_WIDTH / 2, CONFIG.DEFAULT_HEIGHT / 2, 'sky')
     sky.setScale(
@@ -37,6 +41,12 @@ class ExampleScene extends Phaser.Scene {
     // Play sound when we hit the world bounds
     this.physics.world.on('worldbounds', () => { this.sfx.play('hitSound') }, this)
 
+    // Adjust world bounds for physics and camera
+    this.physics.world.setBounds(0, 0, worldWidth, worldHeight)
+    this.cameras.main.setBounds(0, 0, worldWidth, worldHeight)
+    this.cameras.main.startFollow(logo, false, 0.1)
+    this.cameras.main.setDeadzone(worldWidth * 0.25, worldHeight)
+
     // Make the particle emitter follow the logo
     emitter.startFollow(logo)
 
@@ -49,6 +59,9 @@ class ExampleScene extends Phaser.Scene {
 
     // Create a sound instance for sfx
     this.sfx = this.sound.addAudioSprite('gameAudio')
+
+    // Start the overlaid HUD scene
+    this.scene.run('HUDScene')
   }
 
   keyReleased () {
@@ -56,8 +69,8 @@ class ExampleScene extends Phaser.Scene {
     console.log('Key released')
 
     // Switch back to first scene
-    this.game.scene.start('StartScene')
-    this.game.scene.stop('ExampleScene')
+    this.scene.start('StartScene')
+    this.scene.stop('HUDScene')
 
     // Stop music
     this.music.stop()

@@ -7,6 +7,7 @@ import CONFIG from './config.js'
 // Bringing in our different game scenes
 import ExampleScene from './scenes/Example.js'
 import StartScene from './scenes/Start.js'
+import HUDScene from './scenes/HUD.js'
 
 const config = {
   // Configure Phaser graphics settings
@@ -34,4 +35,5 @@ const game = new Phaser.Game(config)
 // Add all our enabled scenes and start the 'StartScene'
 game.scene.add('StartScene', StartScene)
 game.scene.add('ExampleScene', ExampleScene)
+game.scene.add('HUDScene', HUDScene)
 game.scene.start('StartScene')

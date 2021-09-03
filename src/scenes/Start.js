@@ -7,7 +7,7 @@ class StartScene extends Phaser.Scene {
     this.loadingText = this.add.text(
       CONFIG.DEFAULT_WIDTH / 2,
       CONFIG.DEFAULT_HEIGHT / 2,
-      'Loading ...', { font: '16pt Arial', fillColor: '#FFFFFF', align: 'center' }
+      'Loading ...', { font: '16pt Arial', color: '#FFFFFF', align: 'center' }
     )
     this.loadingText.setOrigin(0.5, 0.5)
   }
@@ -59,8 +59,7 @@ class StartScene extends Phaser.Scene {
     console.log('Key released')
 
     // Switch scenes
-    this.game.scene.start('ExampleScene')
-    this.game.scene.stop('StartScene')
+    this.scene.start('ExampleScene')
 
     // Stop the music
     this.music.stop()
