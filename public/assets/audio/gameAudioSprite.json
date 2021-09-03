@@ -1,0 +1,25 @@
+{
+  "resources": [
+    "public/assets/audio/gameAudioSprite.ogg",
+    "public/assets/audio/gameAudioSprite.m4a",
+    "public/assets/audio/gameAudioSprite.mp3",
+    "public/assets/audio/gameAudioSprite.ac3"
+  ],
+  "spritemap": {
+    "freeVertexStudioTrack1": {
+      "start": 0,
+      "end": 64.07836734693878,
+      "loop": true
+    },
+    "freeVertexStudioTrack2": {
+      "start": 66,
+      "end": 91.65224489795918,
+      "loop": true
+    },
+    "hitSound": {
+      "start": 93,
+      "end": 93.45913832199547,
+      "loop": false
+    }
+  }
+}
