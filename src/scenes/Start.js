@@ -37,11 +37,6 @@ class StartScene extends Phaser.Scene {
       'assets/audio/gameAudioSprite.mp3',
       'assets/audio/gameAudioSprite.ac3'
     ])
-
-    // DEBUG: Fake loading lots of data
-    // for (let i = 0; i < 300; i++) {
-    //   this.load.image('sky' + i, 'assets/skies/space3.png')
-    // }
   }
 
   create () {
@@ -56,7 +51,7 @@ class StartScene extends Phaser.Scene {
     )
 
     // Add a callback when a key is released
-    this.input.keyboard.on('keyup', this.keyReleased, this)
+    // this.input.keyboard.on('keyup', this.keyReleased, this)
 
     // Add some sprites
     this.witch = new Witch(this, 100, 100)
@@ -79,9 +74,32 @@ class StartScene extends Phaser.Scene {
     this.slime2.anims.play('slimeWalkHoriz')
     this.slime2.setFlipX(true)
 
+    // Create some cursor key event listeners
+    this.cursors = this.input.keyboard.createCursorKeys()
+
     // Load and play background music
     this.music = this.sound.addAudioSprite('gameAudio')
     // this.music.play('freeVertexStudioTrack1')
+  }
+
+  update () {
+    // Examine cursor keys to determine direction to walk
+    const direction = { x: 0, y: 0 }
+    if (this.cursors.right.isDown) {
+      direction.x += 1
+    }
+    if (this.cursors.left.isDown) {
+      direction.x -= 1
+    }
+    if (this.cursors.up.isDown) {
+      direction.y -= 1
+    }
+    if (this.cursors.down.isDown) {
+      direction.y += 1
+    }
+
+    // Make witch walk
+    this.witch.move(direction.x, direction.y)
   }
 
   keyReleased () {
