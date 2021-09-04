@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="23" height="18" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="19">
+ <tileset firstgid="1" name="Props" tilewidth="275" tileheight="202" tilecount="5" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="265" height="59" source="../map-images/police-human-bottomLeft.png"/>
+  </tile>
+  <tile id="1">
+   <image width="275" height="59" source="../map-images/police-human-bottomRight.png"/>
+  </tile>
+  <tile id="2">
+   <image width="60" height="202" source="../map-images/police-human-desk1.png"/>
+  </tile>
+  <tile id="3">
+   <image width="225" height="202" source="../map-images/police-human-desk2.png"/>
+  </tile>
+  <tile id="4">
+   <image width="66" height="118" source="../map-images/police-human-props1.png"/>
+  </tile>
+ </tileset>
+ <imagelayer id="2" name="Human" locked="1">
+  <image source="../map-images/police-human.png" width="717" height="556"/>
+ </imagelayer>
+ <objectgroup id="3" name="HumanProps">
+  <object id="1" name="BottomLeft" type="Sortable" gid="1" x="0" y="556" width="265" height="59"/>
+  <object id="2" name="BottomRight" type="Sortable" gid="2" x="442" y="556" width="275" height="59"/>
+  <object id="3" name="Chair" type="Sortable" gid="5" x="619" y="477" width="66" height="118"/>
+  <object id="4" name="Desk2" type="Sortable" gid="4" x="469" y="319" width="225" height="202"/>
+  <object id="5" name="Desk1" type="Sortable" gid="3" x="182" y="319" width="60" height="202"/>
+ </objectgroup>
+ <objectgroup id="4" name="Colliders">
+  <object id="6" name="Rectangle" type="Collider" x="-12" y="-7" width="740" height="146.545"/>
+  <object id="7" name="Rectangle" type="Collider" x="442" y="524.5" width="292.5" height="48"/>
+  <object id="8" name="Rectangle" type="Collider" x="-11.5" y="524.5" width="275" height="44"/>
+  <object id="9" name="Rectangle" type="Collider" x="-9.5" y="133" width="28.5" height="394.5"/>
+  <object id="10" name="Rectangle" type="Collider" x="693" y="131" width="35" height="401.5"/>
+  <object id="11" name="Rectangle" type="Collider" x="470.091" y="216.455" width="226.364" height="101.5"/>
+  <object id="12" name="Rectangle" type="Collider" x="470.091" y="177" width="49.9091" height="41"/>
+  <object id="13" name="Rectangle" type="Collider" x="17.4545" y="177" width="224.182" height="140.909"/>
+  <object id="14" name="Rectangle" type="Collider" x="13.8182" y="132.364" width="161.455" height="51.6364"/>
+  <object id="15" name="Rectangle" type="Collider" x="17.4545" y="314.727" width="56" height="162"/>
+  <object id="16" name="Rectangle" type="Collider" x="618.909" y="442.364" width="40.5455" height="34.7273"/>
+  <object id="17" name="Rectangle" type="Collider" x="636.182" y="380" width="48.3636" height="62.1818"/>
+  <object id="18" name="Rectangle" type="Entrance" x="256" y="564" width="196" height="9"/>
+ </objectgroup>
+</map>
