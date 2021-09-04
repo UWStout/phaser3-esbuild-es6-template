@@ -43,6 +43,24 @@ When the game is run in `dev` mode, the global JS variable `__DEV__` is true.  Y
 
 `npm run build` will do a build only using minify with no sourcemap or local server and does NOT continue to monitor for changes.  Use this when you are ready to deploy your game to a dedicated web server. The game is completely contained under the `public` folder.
 
+## Dev Environment Config
+Most JS devs already have their environment configured the way they want so you can ignore this if that is you!
+
+For students (and those that are just curious) here's how I have my environment configured and my own practices. This repo likely expects a few of these things to be in place if you want the best experience but none of it is requried:
+
+- Use [Visual Studio Code](https://code.visualstudio.com/) as the main editor
+- Employ [Standard JS](https://standardjs.com/) as a coding standard (hater's gonna hate)
+  - You can always consider re-configuring for [airbnb](https://github.com/airbnb/javascript) or [Google](https://google.github.io/styleguide/jsguide.html) or whatever you please, but USE SOME STANDARD!!
+- Recommended VSCode extensions:
+  - Beautify
+  - Code Spell Checker
+  - GitLens
+  - Node.js Extension Pack
+  - vscode-icons (and remember to enable)
+- Other VSCode Config:
+  - Set git bash as your default terminal profile
+  - Always make sure your eslint is working (look for errors under `output -> ESLint` in the terminal panel)
+
 ## License
 
 [MIT](LICENSE).
