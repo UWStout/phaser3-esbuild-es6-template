@@ -8,6 +8,7 @@ import CONFIG from './config.js'
 import ExampleScene from './scenes/Example.js'
 import StartScene from './scenes/Start.js'
 import HUDScene from './scenes/HUD.js'
+import Stage1Scene from './scenes/Stage1.js'
 
 const config = {
   // Configure Phaser graphics settings
@@ -30,10 +31,13 @@ const config = {
 }
 
 // Initialize the base phaser game object (must always be done once)
+// eslint-disable-next-line no-unused-vars
 const game = new Phaser.Game(config)
 
 // Add all our enabled scenes and start the 'StartScene'
 game.scene.add('StartScene', StartScene)
 game.scene.add('ExampleScene', ExampleScene)
 game.scene.add('HUDScene', HUDScene)
-game.scene.start('StartScene')
+game.scene.add('Stage1', Stage1Scene)
+
+game.scene.start('Stage1')
