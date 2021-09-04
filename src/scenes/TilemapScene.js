@@ -86,6 +86,33 @@ class TilemapScene extends Phaser.Scene {
     // Return image and props group
     return [imageObj, propGroup]
   }
+
+  parseColliderObjects (layerName) {
+    // Create a new GameObject group to hold new objects
+    const colliderGroup = this.createObjectGroup({ physics: true })
+
+    // Loop over colliders and create rectangles
+    const objectData = this.mapData.getObjectLayer(layerName).objects
+    objectData.forEach((curObj) => {
+      const curCollider = new Phaser.GameObjects.Rectangle(
+        this, curObj.x, curObj.y, curObj.width, curObj.height
+      )
+      curCollider.setOrigin(0, 0)
+
+      // Handle entrances
+      if (curObj.type === 'Entrance') {
+        curCollider.isEntrance = true
+      }
+
+      // Configure physics body
+      this.physics.add.existing(curCollider, true)
+      curCollider.body.allowGravity = false
+      curCollider.body.immovable = true
+      colliderGroup.add(curCollider)
+    })
+
+    return colliderGroup
+  }
 }
 
 export default TilemapScene
