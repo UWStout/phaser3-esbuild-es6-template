@@ -9,6 +9,7 @@ import ExampleScene from './scenes/Example.js'
 import StartScene from './scenes/Start.js'
 import HUDScene from './scenes/HUD.js'
 import Stage1Scene from './scenes/Stage1.js'
+import PoliceLobbyScene from './scenes/PoliceLobby.js'
 
 const config = {
   // Configure Phaser graphics settings
@@ -40,5 +41,6 @@ game.scene.add('StartScene', StartScene)
 game.scene.add('ExampleScene', ExampleScene)
 game.scene.add('HUDScene', HUDScene)
 game.scene.add('Stage1', Stage1Scene)
+game.scene.add('PoliceLobby', PoliceLobbyScene)
 
-game.scene.start('Stage1')
+game.scene.start('PoliceLobby')

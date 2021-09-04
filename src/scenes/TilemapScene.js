@@ -28,18 +28,26 @@ class TilemapScene extends Phaser.Scene {
     return newLayer
   }
 
-  // Parse object layer from tilemap and create given sprite
-  parseObjectLayer (layerName, spriteKey, spriteFrame, physicsConfig) {
+  createObjectGroup (physicsConfig) {
     // Create a new GameObject group to hold new objects
     let objGroup = {}
     if (physicsConfig) {
-      objGroup = this.physics.add.group(physicsConfig)
+      objGroup = this.physics.add.staticGroup(physicsConfig)
       if (physicsConfig.createCallback) {
         objGroup.createCallbackHandler = physicsConfig.createCallback
       }
     } else {
       objGroup = this.add.group()
     }
+
+    // Return created group
+    return objGroup
+  }
+
+  // Parse object layer from tilemap and create given sprite
+  parseObjectLayer (layerName, spriteKey, spriteFrame, physicsConfig) {
+    // Create a new GameObject group to hold new objects
+    const objGroup = this.createObjectGroup(physicsConfig)
 
     // Grab array of objects from the layer
     const objectData = this.mapData.getObjectLayer(layerName).objects
@@ -53,6 +61,30 @@ class TilemapScene extends Phaser.Scene {
     })
 
     return objGroup
+  }
+
+  parseImageAndPropsLayers (layerPrefix, keyPrefix) {
+    // Pull out image and add to scene
+    const imageIndex = this.mapData.getImageIndex(layerPrefix)
+    const imageLayer = this.mapData.images[imageIndex]
+    const imageObj = this.add.image(imageLayer.x, imageLayer.y, keyPrefix)
+    imageObj.setOrigin(0, 0)
+
+    // Create a new GameObject group to hold new objects
+    const propGroup = this.createObjectGroup()
+
+    // Loop over props and create sprites
+    const objectData = this.mapData.getObjectLayer(layerPrefix + 'Props').objects
+    objectData.forEach((curObj) => {
+      const curProp = propGroup.create(
+        curObj.x, curObj.y - curObj.height, keyPrefix + curObj.name
+      )
+      curProp.setOrigin(0, 0)
+      curProp.depth = curObj.y
+    })
+
+    // Return image and props group
+    return [imageObj, propGroup]
   }
 }
 
