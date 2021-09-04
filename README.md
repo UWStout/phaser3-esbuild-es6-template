@@ -7,6 +7,7 @@ This repo contains an example of how to create a game using Phaser 3, ES6 and [E
 Before beginning, you will need to have the following installed on your development computer:
 - git (on windows, [git for windows](https://git-scm.com/download/win) is recommended)
 - node.js: available for all major platforms [here](https://nodejs.org/en/download/) (the LTS version is recommended)
+- ffmpeg: optional, used in tutorials for audio-sprite support (recommend latest gpl, n4.4 release from [here](https://github.com/BtbN/FFmpeg-Builds/releases))
 
 A good code editor is also recommended and this repo is designed around [Visual Studio Code](https://code.visualstudio.com/).
 
