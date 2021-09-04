@@ -6,12 +6,12 @@
     "public/assets/audio/gameAudioSprite.ac3"
   ],
   "spritemap": {
-    "freeVertexStudioTrack1": {
+    "BGMTrack1": {
       "start": 0,
       "end": 64.07836734693878,
       "loop": true
     },
-    "freeVertexStudioTrack2": {
+    "BGMTrack2": {
       "start": 66,
       "end": 91.65224489795918,
       "loop": true
@@ -19,6 +19,31 @@
     "hitSound": {
       "start": 93,
       "end": 93.45913832199547,
+      "loop": false
+    },
+    "Stage1": {
+      "start": 95,
+      "end": 304.8973015873016,
+      "loop": false
+    },
+    "Stage2": {
+      "start": 306,
+      "end": 501.9830158730159,
+      "loop": false
+    },
+    "deathSound": {
+      "start": 503,
+      "end": 504.7585941043084,
+      "loop": false
+    },
+    "footstepsSound": {
+      "start": 506,
+      "end": 509.3,
+      "loop": false
+    },
+    "jumpSound": {
+      "start": 511,
+      "end": 511.30433106575964,
       "loop": false
     }
   }
