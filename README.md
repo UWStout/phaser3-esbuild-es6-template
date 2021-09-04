@@ -15,9 +15,9 @@ A good code editor is also recommended and this repo is designed around [Visual 
 
 On GitHub, click the 'Use this template' button above the file list. This will clone the template for you under your own GitHub account. For more details see [this help file](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
 
-Once created, clone the repo locally and install its dependencies.
+Once created, clone/checkout a local copy on your computer and install the dependencies.
 
-Note that if you have cloned this template repo via GitHub, then you'll need to change the URLs below to match _your_ repo's name:
+Note: If you have forked/cloned this template to your own account, then you'll need to change the URLs below to match _your_ repo's name:
 
 ```bash
 git clone https://github.com/UWStout/gdd325-esbuild-phaser3
