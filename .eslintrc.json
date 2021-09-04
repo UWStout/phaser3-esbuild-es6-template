@@ -1,9 +1,10 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "standard"
     ],
     "globals": {
@@ -12,10 +13,11 @@
         "__DEV__": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018,
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "rules": {
+        // Convert many standard.js rules to warnings instead of errors
         "import/no-unresolved": [2],
         "indent": "warn",
         "quotes": "warn",
@@ -28,6 +30,7 @@
         "brace-style": "warn",
         "curly": "warn",
         "no-multiple-empty-lines": "warn",
+        "no-throw-literal": "off",
         "operator-linebreak": "warn",
         "one-var": "warn",
         "no-cond-assign": "warn",
@@ -35,6 +38,7 @@
         "camelcase": "warn",
         "comma-dangle": "warn",
         "comma-style": "warn",
+        "default-case-last": "warn",
         "dot-location": "warn",
         "eol-last": "warn",
         "func-call-spacing": "warn",
