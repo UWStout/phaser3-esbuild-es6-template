@@ -55,7 +55,7 @@ class ExampleScene extends Phaser.Scene {
 
     // Load and play background music
     this.music = this.sound.addAudioSprite('gameAudio')
-    this.music.play('freeVertexStudioTrack2')
+    this.music.play('BGMTrack2')
 
     // Create a sound instance for sfx
     this.sfx = this.sound.addAudioSprite('gameAudio')

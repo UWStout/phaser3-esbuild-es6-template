@@ -51,7 +51,7 @@ class StartScene extends Phaser.Scene {
     )
 
     // Add a callback when a key is released
-    // this.input.keyboard.on('keyup', this.keyReleased, this)
+    this.input.keyboard.on('keyup', this.keyReleased, this)
 
     // Add some sprites
     this.witch = new Witch(this, 100, 100)
@@ -79,7 +79,7 @@ class StartScene extends Phaser.Scene {
 
     // Load and play background music
     this.music = this.sound.addAudioSprite('gameAudio')
-    // this.music.play('freeVertexStudioTrack1')
+    this.music.play('BGMTrack1')
   }
 
   update () {
