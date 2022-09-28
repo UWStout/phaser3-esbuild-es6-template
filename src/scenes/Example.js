@@ -18,7 +18,7 @@ class ExampleScene extends Phaser.Scene {
     // Add background image
     const sky = this.add.image(CONFIG.DEFAULT_WIDTH / 2, CONFIG.DEFAULT_HEIGHT / 2, 'sky')
     sky.setScale(
-      CONFIG.DEFAULT_WIDTH / sky.width,
+      CONFIG.DEFAULT_WIDTH / sky.width * 1.5,
       CONFIG.DEFAULT_HEIGHT / sky.height
     )
 

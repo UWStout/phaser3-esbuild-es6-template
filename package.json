@@ -1,6 +1,6 @@
 {
   "name": "gdd325-esbuild-phaser3",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Phaser 3 + ESBuild + ES6 Template Project",
   "scripts": {
     "audio": "audiosprite --loop freeVertexStudioTrack1 --loop freeVertexStudioTrack2 --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3",
@@ -33,6 +33,6 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "phaser": "^3.55.0"
+    "phaser": "^3.55.2"
   }
 }
