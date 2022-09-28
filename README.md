@@ -61,6 +61,11 @@ For students (and those that are just curious) here's how I have my environment 
   - Set git bash as your default terminal profile
   - Always make sure your eslint is working (look for errors under `output -> ESLint` in the terminal panel)
 
+## Node Package Voulnrability
+After running "npm install" it will report a high-severity vulnerability.  This comes from the Audiosprite package.  To solve this, we employ 'npm-force-resolutions' which runs automatically after install.  You can run the install process a second time to see that no more vulnerabilities are reported.
+
+We are specifically focing minimist and underscore (used by Audiosprite) to newer versions that are not vulnerable to this attack (see the package.json for details).
+
 ## License
 
 [MIT](LICENSE).
