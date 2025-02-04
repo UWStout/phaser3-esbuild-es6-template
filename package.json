@@ -5,9 +5,9 @@
   "scripts": {
     "audio": "audiosprite --loop freeVertexStudioTrack1 --loop freeVertexStudioTrack2 --output public/assets/audio/gameAudioSprite raw_assets/audio/*.mp3",
 
-    "dev": "esbuild src/main.js --serve=3000 --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/bundle.js",
-    "prod": "esbuild src/main.js --serve=3000 --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js",
-    "build": "esbuild src/main.js --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/bundle.js",
+    "dev": "esbuild src/main.js --serve=3000 --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outdir=public/",
+    "prod": "esbuild src/main.js --serve=3000 --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outdir=public/",
+    "build": "esbuild src/main.js --bundle --minify --target=es6 --define:__DEV__=false --outdir=public/",
 
     "preinstall": "npx npm-force-resolutions"
   },
@@ -21,18 +21,16 @@
   "license": "MIT",
   "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
   "resolutions": {
-    "minimist": "^1.2.5",
-    "underscore": "^1.12.1"
+    "minimist": "1.2.6",
+    "underscore": "1.12.1"
   },
   "devDependencies": {
     "audiosprite": "^0.7.2",
-    "debounce": "^1.2.1",
-    "esbuild": "^0.12.25",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "phaser": "^3.55.2"
+    "debounce": "^2.2.0",
+    "esbuild": "^0.24.2",
+    "eslint": "^8.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "phaser": "^3.87.0"
   }
 }

@@ -23,8 +23,7 @@ class ExampleScene extends Phaser.Scene {
     )
 
     // Create and configure a particle emitter
-    const particles = this.add.particles('red')
-    const emitter = particles.createEmitter({
+    const emitter = this.add.particles(0, 0, 'red', {
       speed: 100,
       scale: { start: 1, end: 0 },
       blendMode: 'ADD'
