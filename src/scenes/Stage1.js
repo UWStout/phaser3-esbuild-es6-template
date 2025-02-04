@@ -47,7 +47,7 @@ class Stage1Scene extends TilemapScene {
       immovable: true,
       createCallback: (spike) => {
         spike.body.setSize(64, 34)
-        spike.body.setOffset(0, 30)
+        spike.body.setOffset(32, 62)
       }
     })
 

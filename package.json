@@ -21,8 +21,8 @@
   "license": "MIT",
   "homepage": "https://github.com/UWStout/gdd325-esbuild-phaser3#readme",
   "resolutions": {
-    "minimist": "^1.2.5",
-    "underscore": "^1.12.1"
+    "minimist": "1.2.6",
+    "underscore": "1.12.1"
   },
   "devDependencies": {
     "audiosprite": "^0.7.2",
@@ -33,6 +33,6 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "phaser": "^3.55.0"
+    "phaser": "3.55.0"
   }
 }

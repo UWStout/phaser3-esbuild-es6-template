@@ -95,9 +95,9 @@ class TilemapScene extends Phaser.Scene {
     const objectData = this.mapData.getObjectLayer(layerName).objects
     objectData.forEach((curObj) => {
       const curCollider = new Phaser.GameObjects.Rectangle(
-        this, curObj.x, curObj.y, curObj.width, curObj.height
+        this, curObj.x + curObj.width, curObj.y - curObj.height / 2, curObj.width, curObj.height
       )
-      curCollider.setOrigin(0, 0)
+      curCollider.setOrigin(0.5, 0)
 
       // Handle entrances
       if (curObj.type === 'Entrance') {
